@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "IPV7e7prDjV6GGAwh7UykGocAwhrFgG8Z/C/4f/K3c3zNaKu5LhUeEsjJmXW+Uk2lF4TtclZ0ufyXGh9NA6OwQ==",
+  "dgSpecHash": "ZkliL1sVlgD4jpXib3kZ6n0+UXE9FpFG2qams0A7dHiRvQxKnEumdxYAUiWAqqHahqG0jPWmUhRXsYGItdIatg==",
   "success": true,
-  "projectFilePath": "C:\\Users\\guilh\\Downloads\\alura.estacionamento-aula01\\alura.estacionamento-aula01\\Alura.Estacionamento\\Alura.Estacionamento.csproj",
+  "projectFilePath": "D:\\Projects\\Testes_.NET\\Testes_.NET\\Alura.Estacionamento\\Alura.Estacionamento.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\guilh\\.nuget\\packages\\microsoft.windowsdesktop.app.ref\\5.0.0\\microsoft.windowsdesktop.app.ref.5.0.0.nupkg.sha512",
     "C:\\Users\\guilh\\.nuget\\packages\\microsoft.netcore.app.ref\\5.0.0\\microsoft.netcore.app.ref.5.0.0.nupkg.sha512",
