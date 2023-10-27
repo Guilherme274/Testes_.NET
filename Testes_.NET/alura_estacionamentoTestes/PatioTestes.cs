@@ -118,5 +118,22 @@ namespace alura_estacionamentoTestes
 
             //Assert
         }
+
+        [Fact]
+        public void DadosAutomovel()
+        {
+            //Arrange
+            var carro = new Veiculo();
+            carro.Proprietario = "Carlos Silva";
+            carro.Placa = "ZAP-7419";
+            carro.Cor = "Verde";
+            carro.Modelo = "Variante";
+
+            //Act
+            string dados = carro.ToString();
+
+            //Assert
+            Assert.Contains("Tipo do Veículo: Automovel", dados);
+        }
     }
 }
