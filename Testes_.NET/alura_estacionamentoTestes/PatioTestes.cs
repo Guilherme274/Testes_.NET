@@ -8,14 +8,25 @@ using System.Reflection;
 using System.Runtime.ConstrainedExecution;
 using System.Text;
 using System.Threading.Tasks;
+using Xunit.Abstractions;
 
 namespace alura_estacionamentoTestes
 {
-    public class PatioTestes
+    public class PatioTestes:IDisposable
     {
+        private Veiculo veiculo;
+        public ITestOutputHelper SaidaConsoleTeste;
+
+        public PatioTestes(ITestOutputHelper _saidaConsoleTeste)
+        {
+            SaidaConsoleTeste = _saidaConsoleTeste;
+            SaidaConsoleTeste.WriteLine("Construtor invocado.");
+            veiculo = new Veiculo();
+        }
+
 
         [Fact]
-        public void ValidaFaturamento()
+        public void ValidaFaturamentoDoEstacionamentoComUmVeiculo()
         {
 
             //Arrange
@@ -74,7 +85,7 @@ namespace alura_estacionamentoTestes
 
         [Theory]
         [InlineData("André Silva", "ASD-1498", "preto", "Gol")]
-        public void LocalizaVeiculoNoPatio(string proprietario, string placa, string cor, string modelo)
+        public void LocalizaVeiculoNoPatioComBaseNoIdTicket(string proprietario, string placa, string cor, string modelo)
         {
 
             //Arrange
@@ -87,10 +98,10 @@ namespace alura_estacionamentoTestes
             estacionamento.RegistrarEntradaVeiculo(veiculo);
 
             //Act
-            var consultado = estacionamento.PesquisaVeiculo(placa);
+            var consultado = estacionamento.PesquisaVeiculo(veiculo.IdTicket);
 
             //Assert
-            Assert.Equal(placa, consultado.Placa);
+            Assert.Contains("### Ticket Estacionamento Alura ###", consultado.Ticket);
         }
 
         [Fact]
@@ -119,21 +130,9 @@ namespace alura_estacionamentoTestes
             //Assert
         }
 
-        [Fact]
-        public void DadosAutomovel()
+       public void Dispose()
         {
-            //Arrange
-            var carro = new Veiculo();
-            carro.Proprietario = "Carlos Silva";
-            carro.Placa = "ZAP-7419";
-            carro.Cor = "Verde";
-            carro.Modelo = "Variante";
-
-            //Act
-            string dados = carro.ToString();
-
-            //Assert
-            Assert.Contains("Tipo do Veículo: Automovel", dados);
+            SaidaConsoleTeste.WriteLine("Dispose invocado");
         }
     }
 }

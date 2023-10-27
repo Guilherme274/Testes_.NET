@@ -11,9 +11,12 @@ namespace Alura.Estacionamento.Modelos
         private string _placa;
         private string _proprietario;
         private TipoVeiculo _tipo;
-     
+        private string _ticket;
+
         //Propriedades   
 
+        public string IdTicket { get; set; }
+        public string Ticket { get => _ticket; set => value = _ticket; }
         public string Placa
         {
             get
@@ -67,8 +70,22 @@ namespace Alura.Estacionamento.Modelos
         public string Modelo { get; set; }        
         public string Proprietario
         {
-            get; set;
+            get
+            {
+                return _proprietario;
+            }
+
+            set
+            {
+                if(value.Length < 3)
+                {
+                    throw new System.FormatException("Nome de proprietario incorreto");
+                }
+
+                _proprietario = value;
+            }
         }
+
         public DateTime HoraEntrada { get; set; }
         public DateTime HoraSaida { get; set; }   
         public TipoVeiculo Tipo { get => _tipo; set => _tipo = value; }
